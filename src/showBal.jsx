@@ -1,18 +1,25 @@
-import { WalletAccountError } from "@solana/wallet-adapter-base";
-import { useWallet } from "@solana/wallet-adapter-react";
-import { use } from "react";
+import { useConnection,useWallet } from "@solana/wallet-adapter-react";
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
-
-
-export function showBal(){
-    async function getBal(){
+export function ShowBal(){
+    
+        const { connection } = useConnection();
         const wallet = useWallet();
         
+        async function getBalance(){
+    if(wallet.publicKey) {
+        const balance = await connection.getBalance(wallet.publicKey);
+        document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL;
     }
+ }  
+
+ getBalance();
+
+
     return (
         <div>
             <h2>
-                Your Balance is: {}
+                Balance: <p id="balance"></p>
             </h2>
         </div>
     );

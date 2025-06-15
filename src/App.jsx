@@ -8,6 +8,7 @@ import { WalletModalProvider,
          WalletConnectButton
  } from '@solana/wallet-adapter-react-ui';
  import { Airdrop } from './Airdrop';
+ import { ShowBal } from './showBal';
  import { clusterApiUrl } from '@solana/web3.js';
  import '@solana/wallet-adapter-react-ui/styles.css'; 
 
@@ -20,9 +21,12 @@ function App() {
     <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/tfWqTKwOZBE7hBEsKtSga"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton></WalletMultiButton>
-          <WalletDisconnectButton></WalletDisconnectButton>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <WalletMultiButton />
+            <WalletDisconnectButton />
+          </div>
         <Airdrop></Airdrop>
+        <ShowBal></ShowBal>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
