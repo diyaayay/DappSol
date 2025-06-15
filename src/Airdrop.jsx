@@ -5,7 +5,8 @@ export function Airdrop() {
     const { connection } = useConnection();
 
     async function sendAirdropToUser() {
-        const amount = document.getElementById(publicKey).value;
+        console.log(wallet.publicKey);
+        const amount = document.getElementById("publicKey").value;
         await connection.requestAirdrop(wallet.publicKey, amount * 1000000000);
         alert("Airdropped sol!");
     }

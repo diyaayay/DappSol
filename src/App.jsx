@@ -9,6 +9,7 @@ import { WalletModalProvider,
  } from '@solana/wallet-adapter-react-ui';
  import { Airdrop } from './Airdrop';
  import { ShowBal } from './showBal';
+ import { SendTokens } from './Sendtxn';
  import { clusterApiUrl } from '@solana/web3.js';
  import '@solana/wallet-adapter-react-ui/styles.css'; 
 
@@ -26,6 +27,7 @@ function App() {
             <WalletDisconnectButton />
           </div>
         <Airdrop></Airdrop>
+        <SendTokens></SendTokens>
         <ShowBal></ShowBal>
         </WalletModalProvider>
       </WalletProvider>
