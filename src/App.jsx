@@ -19,7 +19,7 @@ import { WalletModalProvider,
  //      Sending Solana
 function App() {
    return (
-    <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/tfWqTKwOZBE7hBEsKtSga"}>
+    <ConnectionProvider endpoint={import.meta.env.VITE_RPC_URL ?? clusterApiUrl(WalletAdapterNetwork.Devnet)}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
